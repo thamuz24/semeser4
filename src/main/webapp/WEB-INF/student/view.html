@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a>hello</a>
+<h3 th:text="${student.getName()}"></h3>
+<table>
+    <thead>
+        <tr>
+            <th><h3 th:text="${student.getName()}"></h3></th>
+            <th><a th:href="@{/student}">Danh sach hoc vien</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <th>ten</th>
+           <th th:text="${student.getName()}"></th>
+        </tr>
+        <tr>
+            <th>lop</th>
+            <th th:text="${student.class_id.getName()}"></th>
+        </tr>
+        <tr>
+            <th>diem ly thuyet</th>
+            <th th:text="${student.getTheoryScore()}"></th>
+        </tr>
+        <tr>
+            <th>diem thuc hanh</th>
+            <th th:text="${student.getPracticeScore()}"></th>
+        </tr>
+        <tr>
+            <th>danh gia</th>
+            <th th:text="${student.getDescription()}"></th>
+        </tr>
+        <tr>
+            <th>mota</th>
+            <th th:text="${student.getEvaluation()}"></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th> <a th:href="@{/student/update/{id}(id=${student.id})}">Sửa </a> <a th:href="@{/student}">thoat</a></th>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

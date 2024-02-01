@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>Danh sách học viên</h3>
+    <div>
+        <a th:href="@{/students/create}">Thêm học viên</a>
+        <a th:href="@{/students}">Thêm học viên</a>
+    </div>
+</div>
+<table id="student">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>Mô tả</th>
+            <th>Đánh giá</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="s,c : ${studentList}">
+            <td th:text="${c.count}"></td>
+            <td> <a th:href="@{'/student/view/' + ${s.id}}" th:text="${s.name}"></a></td>
+            <td th:text="${s.description}"></td>
+            <td th:text="${s.evaluation}"></td>
+            <td><a th:href="@{/student/update/{id}(id=${s.id})}">Sửa</a><a th:href="@{/student/delete/{id}(id=${s.id})}">xóa</a></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/student/update}" th:object="${student}">
+    <input th:field="*{id}" type="hidden">
+    <label for="name">ten</label>
+    <input th:field="*{name}" id="name">
+
+    <label for="name">theoryScore</label>
+    <input th:field="*{theoryScore}" id="theoryScore">
+
+    <label for="name">practiceScore</label>
+    <input th:field="*{practiceScore}" id="practiceScore">
+
+    <label for="name">description</label>
+    <input th:field="*{description}" id="description">
+
+    <label for="name">evaluation</label>
+    <input th:field="*{evaluation}" id="evaluation">
+
+    <label for="name">class_id</label>
+    <input th:field="*{class_id.classID}" th:text="${student.class_id.classID}" id="class_id">
+
+    <label for="class">class</label>
+    <select th:field="*{class_id}" id="class">
+        <option th:each="c : ${classList}" th:value="${c.classID}" th:text="${c.name}" th:></option>
+    </select>
+    <input type="submit" value="lưu">
+    <a th:href="@{/student}">Thoát</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/student/save}" th:object="${student}">
+    <input th:field="*{id}" type="hidden">
+    <label for="name">ten</label>
+    <input th:field="*{name}" id="name">
+
+    <label for="theoryScore">theoryScore</label>
+    <input th:field="*{theoryScore}" id="theoryScore">
+
+    <label for="practiceScore">practiceScore</label>
+    <input th:field="*{practiceScore}" id="practiceScore">
+
+    <label for="description">description</label>
+    <input th:field="*{description}" id="description">
+
+    <label for="evaluation">evaluation</label>
+    <input th:field="*{evaluation}" id="evaluation">
+
+    <label for="class">class</label>
+    <select th:field="*{class_id}" id="class">
+        <option th:each="class : ${classList}" th:value="${class.getClassID()}" th:text="${class.getName()}" th:></option>
+    </select>
+    <input type="submit" value="lưu">
+    <a th:href="@{/student}">Thoát</a>
+</form>
+
+</body>
+</html>
